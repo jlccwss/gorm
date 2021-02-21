@@ -3,13 +3,12 @@ package gorm
 import (
 	"database/sql"
 	"errors"
+	"github.com/jlccwss/inflection"
 	"go/ast"
 	"reflect"
 	"strings"
 	"sync"
 	"time"
-
-	"github.com/jlccwss/inflection"
 )
 
 // DefaultTableNameHandler default table name handler
