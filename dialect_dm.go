@@ -91,7 +91,7 @@ func (s *dm) DataTypeOf(field *StructField) string {
 			if size > 0 && size < 65532 {
 				sqlType = fmt.Sprintf("varchar(%d)", size)
 			} else {
-				sqlType = "text"
+				sqlType = "varchar(10240)"
 			}
 		case reflect.Struct:
 			if _, ok := dataValue.Interface().(time.Time); ok {
