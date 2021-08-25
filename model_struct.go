@@ -9,7 +9,7 @@ import (
 	"sync"
 	"time"
 
-	"github.com/jlccwss/inflection"
+	"github.com/jlccwss/gorm/inflection"
 )
 
 // DefaultTableNameHandler default table name handler
