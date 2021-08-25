@@ -25,13 +25,13 @@ var NowFunc = func() time.Time {
 var commonInitialisms = []string{"API", "ASCII", "CPU", "CSS", "DNS", "EOF", "GUID", "HTML", "HTTP", "HTTPS", "ID", "IP", "JSON", "LHS", "QPS", "RAM", "RHS", "RPC", "SLA", "SMTP", "SSH", "TLS", "TTL", "UID", "UI", "UUID", "URI", "URL", "UTF8", "VM", "XML", "XSRF", "XSS"}
 var commonInitialismsReplacer *strings.Replacer
 
-var goSrcRegexp = regexp.MustCompile(`jlccwss/gorm(@.*)?/.*.go`)
-var goTestRegexp = regexp.MustCompile(`jlccwss/gorm(@.*)?/.*test.go`)
+var goSrcRegexp = regexp.MustCompile(`jinzhu/gorm(@.*)?/.*.go`)
+var goTestRegexp = regexp.MustCompile(`jinzhu/gorm(@.*)?/.*test.go`)
 
 func init() {
 	var commonInitialismsForReplacer []string
 	for _, initialism := range commonInitialisms {
-		commonInitialismsForReplacer = append(commonInitialismsForReplacer, initialism, strings.Title(strings.ToUpper(initialism)))
+		commonInitialismsForReplacer = append(commonInitialismsForReplacer, initialism, strings.Title(strings.ToLower(initialism)))
 	}
 	commonInitialismsReplacer = strings.NewReplacer(commonInitialismsForReplacer...)
 }

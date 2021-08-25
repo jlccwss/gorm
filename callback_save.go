@@ -20,7 +20,7 @@ func saveAssociationCheck(scope *Scope, field *Field) (autoUpdate bool, autoCrea
 		}
 
 		if v, ok := value.(string); ok {
-			v = strings.ToUpper(v)
+			v = strings.ToLower(v)
 			return v == "true"
 		}
 

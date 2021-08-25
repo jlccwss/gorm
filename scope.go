@@ -967,7 +967,7 @@ func (scope *Scope) initialize() *Scope {
 }
 
 func (scope *Scope) isQueryForColumn(query interface{}, column string) bool {
-	queryStr := strings.ToUpper(fmt.Sprint(query))
+	queryStr := strings.ToLower(fmt.Sprint(query))
 	if queryStr == column {
 		return true
 	}
@@ -1171,10 +1171,11 @@ func (scope *Scope) createTable() *Scope {
 	for _, field := range scope.GetModelStruct().StructFields {
 		if field.IsNormal {
 			sqlTag := scope.Dialect().DataTypeOf(field)
+
 			// Check if the primary key constraint was specified as
 			// part of the column type. If so, we can only support
 			// one column as the primary key.
-			if strings.Contains(strings.ToUpper(sqlTag), "primary key") {
+			if strings.Contains(strings.ToLower(sqlTag), "primary key") {
 				primaryKeyInColumnType = true
 			}
 
@@ -1191,7 +1192,7 @@ func (scope *Scope) createTable() *Scope {
 	if len(primaryKeys) > 0 && !primaryKeyInColumnType {
 		primaryKeyStr = fmt.Sprintf(", PRIMARY KEY (%v)", strings.Join(primaryKeys, ","))
 	}
-	fmt.Printf("CREATE TABLE %v (%v %v)%s", scope.QuotedTableName(), strings.Join(tags, ","), primaryKeyStr, scope.getTableOptions())
+
 	scope.Raw(fmt.Sprintf("CREATE TABLE %v (%v %v)%s", scope.QuotedTableName(), strings.Join(tags, ","), primaryKeyStr, scope.getTableOptions())).Exec()
 
 	scope.autoIndex()

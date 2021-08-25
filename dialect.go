@@ -120,7 +120,7 @@ var ParseFieldStructForDialect = func(field *StructField, dialect Dialect) (fiel
 	if num, ok := field.TagSettingsGet("SIZE"); ok {
 		size, _ = strconv.Atoi(num)
 	} else {
-		size = 512
+		size = 255
 	}
 
 	// Default type from tag setting

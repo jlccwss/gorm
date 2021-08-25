@@ -118,7 +118,7 @@ func defaultNamer(name string) string {
 
 	buf.WriteByte(value[len(value)-1])
 
-	s := strings.ToUpper(buf.String())
+	s := strings.ToLower(buf.String())
 	smap.Set(name, s)
 	return s
 }
