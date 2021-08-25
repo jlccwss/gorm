@@ -44,12 +44,3 @@ You can help to make the project better, check out [http://gorm.io/contribute.ht
 
 ## Author
 
-**jinzhu**
-
-* <http://github.com/jinzhu>
-* <wosmvp@gmail.com>
-* <http://twitter.com/zhangjinzhu>
-
-## License
-
-Released under the [MIT License](http://www.opensource.org/licenses/MIT).
